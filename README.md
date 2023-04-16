@@ -1,5 +1,5 @@
 # Java-Worksheets_Sols
-Solutions to all the problems in Java-Worksheets (WIP)
+sols to java worksheets
 
 
 This is a repository created by @Aahvaanit for practicing Java.
