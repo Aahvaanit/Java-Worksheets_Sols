@@ -8,15 +8,15 @@ public class problem2 {
             xx /= 100;
 
             String yy = "" + xx;
-            int zz = yy.indexOf(".");
-            String ww = "";
+            String tab = "";
 
-            do {
-                ww += " ";
-                zz--;
-            } while (zz != 0);
+            int length = 6 - yy.indexOf(".");
 
-            IBIO.output(ww + yy);
+            for (int j = 0; j < length; j++) {
+                tab += " ";
+            }
+
+            IBIO.output(tab + yy);
         }
     }
 }
