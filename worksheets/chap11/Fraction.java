@@ -26,19 +26,19 @@ public class Fraction {
         Scanner parse = new Scanner(strFraction);
         this.num = parse.nextInt();
         this.den = parse.nextInt();
-        // this.simplify;
+        this.simplify();
     }
 
-    /* problem1 */
+    /* Problem1 */
     public Fraction add(Fraction f) {
         Fraction result = new Fraction();
         result.num = (this.num * f.den) + (f.num * this.den);
         result.den = this.den * f.den;
-
+        result.simplify();
         return result;
     }
 
-    /* problem2 */
+    /* Problem2 */
     private static int gcd(int num, int den) {
         if (num <= 0) 
             return 1;
@@ -54,6 +54,17 @@ public class Fraction {
     }
 
     private void simplify() {
-        
+        int gcd = gcd(this.num, this.den);
+        this.num /= gcd;
+        this.den /= gcd;
+    }
+
+    /* Problem3 */
+    public double toDecimal() {
+        return (double) this.num / this.den;
+    }
+
+    public void print() {
+        IBIO.output(this.toString());
     }
 }
