@@ -20,12 +20,18 @@ public class Fraction {
         return s;
     }
 
-    public void enter() {
+    public void enter() throws Exception {
         String strFraction = IBIO.input("Enter fraction (a/b format): ");
         strFraction = strFraction.replace("/", " ");
         Scanner parse = new Scanner(strFraction);
         this.num = parse.nextInt();
         this.den = parse.nextInt();
+
+        /* Problem 4 */
+        if (this.den <= 0)
+            throw new Exception("!!!  Invalid denominator: Please enter a denominator greater than zero  !!!");
+        /* End */
+
         this.simplify();
     }
 
@@ -37,6 +43,7 @@ public class Fraction {
         result.simplify();
         return result;
     }
+    /* End */
 
     /* Problem2 */
     private static int gcd(int num, int den) {
@@ -58,13 +65,15 @@ public class Fraction {
         this.num /= gcd;
         this.den /= gcd;
     }
+    /* End */
 
     /* Problem3 */
     public double toDecimal() {
-        return (double) this.num / this.den;
+        return (double) (this.num / this.den);
     }
 
     public void print() {
         IBIO.output(this.toString());
     }
+    /* End */
 }
